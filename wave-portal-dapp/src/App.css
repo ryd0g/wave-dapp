@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;700&display=swap");
 body {
   background-color: #202023;
   color: white;
+  font-family: "M PLUS Rounded 1c";
 }
 .mainContainer {
   display: flex;
@@ -18,13 +20,15 @@ body {
 
 .header {
   text-align: center;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
 }
 
 .bio {
   text-align: center;
   margin-top: 16px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .waveButton {
