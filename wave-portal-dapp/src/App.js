@@ -10,7 +10,7 @@ export default function App() {
   const [accountAddress, setAccountAddress] = useState("");
   const [accountBalance, setAccountBalance] = useState("");
   // set contract address
-  const contractAddress = "0xAB8B069383B866088301F824979a75685110e42d";
+  const contractAddress = "0x269c42b796E95F90089EaEf21d426FdDd1155179";
   // set contract ABI
   const contractABI = abi.abi;
 
