@@ -10,6 +10,9 @@ module.exports = {
       // This value will be replaced on runtime
       url: process.env.STAGING_QUICKNODE_KEY,
       accounts: [process.env.PRIVATE_KEY],
+      gas: 2100000,
+      gasPrice: 8000000000,
+      saveDeployments: true,
     },
     mainnet: {
       chainId: 1,
