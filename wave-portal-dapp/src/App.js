@@ -154,8 +154,8 @@ export default function App() {
         <div className="header">👋 Hello!</div>
 
         <div className="subtitle">
-          I'm Ryan, and this is the Wave Portal! <br />
-          Connect your Ethereum wallet, write your message, and wave at me!
+          I'm Ryan, and this is the Wave Portal! Connect your Ethereum wallet,
+          write your message, and wave!
         </div>
         {accountAddress && (
           <div className="subtitle">Connected Wallet: {accountAddress}</div>
