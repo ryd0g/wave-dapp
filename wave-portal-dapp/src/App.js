@@ -9,11 +9,49 @@ export default function App() {
   const [currentWallet, setCurrentWallet] = useState("");
   const [accountAddress, setAccountAddress] = useState("");
   const [accountBalance, setAccountBalance] = useState("");
+  // store waves
+  const [allWaves, setAllWaves] = useState([]);
+  const [message, setMessage] = useState("");
   // set contract address
   const contractAddress = "0x269c42b796E95F90089EaEf21d426FdDd1155179";
   // set contract ABI
   const contractABI = abi.abi;
 
+  // function to get waves from smart contract
+  const getAll = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+        // call getAll function from contract
+        const waves = await wavePortalContract.getAll();
+
+        // grab address, timestamp, and message from user tx
+        let wavesCleaned = [];
+        waves.forEach((wave) => {
+          wavesCleaned.push({
+            address: wave.waver,
+            timestamp: new Date(wave.timestamp * 1000),
+            message: wave.message,
+          });
+        });
+        // store data in state
+        setAllWaves(wavesCleaned);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // function to check if user has metamask wallet
   const checkWallet = async () => {
     try {
       //make sure browser has access to ethereum window
@@ -85,7 +123,9 @@ export default function App() {
         console.log("Total wave count: ", count.toNumber());
 
         // execute functions from contract
-        const waveTxn = await wavePortalContract.wave();
+        const waveTxn = await wavePortalContract.wave(message, {
+          gasLimit: 300000,
+        });
         console.log("Mining tx...", waveTxn.hash);
         await waveTxn.wait();
         console.log("Tx mined: ", waveTxn.hash);
@@ -104,14 +144,18 @@ export default function App() {
     checkWallet();
   }, []);
 
+  useEffect(() => {
+    getAll();
+  }, []);
+
   return (
     <div className="mainContainer">
       <div className="dataContainer">
         <div className="header">👋 Hello!</div>
 
         <div className="subtitle">
-          I'm Ryan, and this is the Wave Portal. Connect your Ethereum wallet
-          and wave at me!
+          I'm Ryan, and this is the Wave Portal! <br />
+          Connect your Ethereum wallet, write your message, and wave at me!
         </div>
         {accountAddress && (
           <div className="subtitle">Connected Wallet: {accountAddress}</div>
@@ -134,6 +178,37 @@ export default function App() {
             Connect Wallet
           </button>
         )}
+
+        {currentWallet && (
+          <textarea
+            className="textbox"
+            name="messageArea"
+            placeholder="Type message here..."
+            type="text"
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        )}
+
+        {allWaves.map((wave, index) => {
+          return (
+            <div
+              key={index}
+              className="messageBox"
+              style={{
+                backgroundColor: "white",
+                marginTop: "16px",
+                padding: "8px",
+                color: "black",
+              }}
+            >
+              <div>Address: {wave.address}</div>
+              <div>Time: {wave.timestamp.toString()}</div>
+              <div>Message: {wave.message}</div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
