@@ -109,15 +109,15 @@ export default function App() {
       <div className="dataContainer">
         <div className="header">👋 Hello!</div>
 
-        <div className="bio">
-          I'm Ryan, and this is my first dapp. Connect your Ethereum wallet and
-          wave at me!
+        <div className="subtitle">
+          I'm Ryan, and this is the Wave Portal. Connect your Ethereum wallet
+          and wave at me!
         </div>
         {accountAddress && (
-          <div className="bio">Connected Wallet: {accountAddress}</div>
+          <div className="subtitle">Connected Wallet: {accountAddress}</div>
         )}
         {accountBalance && (
-          <div className="bio">
+          <div className="subtitle">
             Account Balance: {parseFloat(accountBalance).toFixed(3)} ETH
           </div>
         )}
