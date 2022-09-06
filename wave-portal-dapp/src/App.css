@@ -53,3 +53,13 @@ body {
   font-weight: 500;
   color: #202023;
 }
+
+.textbox {
+  padding-top: 8px;
+  margin-top: 10px;
+  font-family: "Inter";
+}
+
+.messageBox {
+  font-family: "Inter";
+}
