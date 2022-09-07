@@ -35,11 +35,11 @@ contract WavePortal {
         // make sure timestamp is at least 15 minutes since last wave
         require(
             lastWaved[msg.sender] + 15 minutes < block.timestamp,
-            "Wait 15 minutes"
+            "Wait 15 minutes before waving again!"
         );
         // update current timestamp for user
         lastWaved[msg.sender] = block.timestamp;
-        
+
         total += 1;
         console.log("%s waved!", msg.sender, _message);
         // storing wave data in array
