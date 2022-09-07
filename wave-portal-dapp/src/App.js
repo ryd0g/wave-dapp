@@ -155,7 +155,7 @@ export default function App() {
 
         <div className="subtitle">
           I'm Ryan, and this is the Wave Portal! Connect your Ethereum wallet,
-          write your message, and wave!
+          write your message, and wave! (Currently deployed to Rinkeby Testnet)
         </div>
         {accountAddress && (
           <div className="subtitle">Connected Wallet: {accountAddress}</div>
