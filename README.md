@@ -1,5 +1,6 @@
 # Wave Portal
 
-This is the first dapp I am building.
+https://ryan-wave-app.vercel.app/
 
-Allows user to connect Ethereum wallet and wave.
+Simple decentralized application website. Allows user to connect Ethereum wallet, write a message, and wave.
+Currently deployed to the Rinkeby Testnet. (Mainnet deployment in progress)
