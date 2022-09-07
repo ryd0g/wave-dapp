@@ -32,7 +32,7 @@ contract WavePortal {
         // emit event for message sent
         emit newWave(msg.sender, block.timestamp, _message);
         // create prize variable
-        uint256 prize = 0.005 ether;
+        uint256 prize = 0.0005 ether;
         require(
             prize <= address(this).balance,
             "Trying to withdraw more than stored in contract."
