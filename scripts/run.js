@@ -18,7 +18,7 @@ const main = async () => {
   waveCount = await waveContract.getTotal();
   console.log(waveCount.toNumber());
 
-  let waveTxn = await waveContract.wave("Test Message!");
+  let waveTxn = await waveContract.wave("Test Message 1!");
   await waveTxn.wait();
 
   // contract balance get
