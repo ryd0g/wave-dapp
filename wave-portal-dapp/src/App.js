@@ -13,7 +13,7 @@ export default function App() {
   const [allWaves, setAllWaves] = useState([]);
   const [message, setMessage] = useState("");
   // set contract address
-  const contractAddress = "0xfb6A2AE6C1caC959Aa215Dc7f987627cB7584Dda";
+  const contractAddress = "0x4fc5e5CbeF16076aCD9292f6b2cE751793fE1a9c";
   // set contract ABI
   const contractABI = abi.abi;
 
@@ -155,7 +155,7 @@ export default function App() {
 
         <div className="subtitle">
           I'm Ryan, and this is the Wave Portal! Connect your Ethereum wallet,
-          write your message, and wave! (Currently deployed to Rinkeby Testnet)
+          write your message, and wave!
         </div>
         {accountAddress && (
           <div className="subtitle">Connected Wallet: {accountAddress}</div>

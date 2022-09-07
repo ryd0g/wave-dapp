@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-etherscan");
 // import dotenv
 require("dotenv").config();
 
@@ -16,8 +17,11 @@ module.exports = {
     },
     mainnet: {
       chainId: 1,
-      url: process.env.PROD_QUICKNODE_KEY,
+      url: process.env.PROD_ALCHEMY_KEY,
       accounts: [process.env.PRIVATE_KEY],
     },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
