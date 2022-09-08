@@ -186,6 +186,7 @@ export default function App() {
             placeholder="Type message here..."
             type="text"
             id="message"
+            borderRadius="4px"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
@@ -201,6 +202,7 @@ export default function App() {
                 marginTop: "16px",
                 padding: "8px",
                 color: "black",
+                borderRadius: "4px",
               }}
             >
               <div>Address: {wave.address}</div>
